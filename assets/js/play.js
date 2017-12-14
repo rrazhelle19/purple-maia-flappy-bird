@@ -1,3 +1,4 @@
+//on video 5 
 /* global game, Phaser, playState, menuState, mainMenuState */
 
 var playState = {
@@ -15,7 +16,10 @@ var playState = {
         
         //perload pipes and banana
         game.load.image('bird', 'assests/images/banana.png');
-        //game video 4 
+        game.load.image('pipe', 'assests/images/pipe.png');
+        
+        // load the jump sound
+        game.load.audio('jump','assests/audio/jump.m4a');
     },
 
     create: function() { 
