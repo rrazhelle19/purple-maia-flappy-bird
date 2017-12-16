@@ -68,5 +68,35 @@ var playState = {
             this.bird.angle += 1;
         }
                                    
-    }
+    },
+     jump: function(){
+         // if player dead, he can't jump
+         if (this.bird.alive == false) {return;}
+         
+         this.bird.body.velocity.y = -350;
+         
+         // jump animation
+         game.add.tween(this.bird).to({angle: -20}, 100).start();
+         
+         // play sound
+         this.jumpSound.play();
+         
+     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
