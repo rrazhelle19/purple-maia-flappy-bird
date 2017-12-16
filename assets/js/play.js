@@ -95,25 +95,36 @@ var playState = {
         
         //go through all pipes and stop their movement
         this.piper.forEach(function(p){ p.body.velocity.x = 0;}, this);
-                           
-                           
-                           
-    }
+        },
+    
+    restartGame: function (){
+        //displays the restart menu
+        game.state.start('menu');
+    },
+    
+   addPipe: function(x,y) {
+       var pipe = game.add.sprite(x,y,'pipe');
+       this.pip.add(pipe);
+       game.physics.arcade.enable(pipe);//enable phyiscs on pipe
+       
+       pipe.body.velocity.x = -200;
+       pipe.checkWorldBounds = true;
+       pipe.outOfBoundsKill = true;
+   },
+    
+  addRowOfPipes: function(){
+      var hole = Math.floor(Math.random()*5)+1;
+      
+      for (var i = 0; i < 10; i++){
+          if (i != hole && i!= hole+1){
+              this.addPipe(400,i*65);
+          }
+      }
+      
+      this.score += 1;
+      this.labelScore.text = this.score;
+  }
+    
+    
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
