@@ -94,7 +94,7 @@ var playState = {
         game.time.events.remove(this.timer);
         
         //go through all pipes and stop their movement
-        this.piper.forEach(function(p){ p.body.velocity.x = 0;}, this);
+        this.pipes.forEach(function(p){ p.body.velocity.x = 0;}, this);
         },
     
     restartGame: function (){
