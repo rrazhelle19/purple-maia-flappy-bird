@@ -81,7 +81,24 @@ var playState = {
          // play sound
          this.jumpSound.play();
          
-     }
+     },
+    
+    hitPipe: function(){
+          // if player had already hit a pipe, we have nothing to do
+        if (this.bird.alive == false){return;}
+        
+        //set alive property to false
+        this.bird.alive = false;
+        
+        // prevent new pipes from appearing
+        game.time.events.remove(this.timer);
+        
+        //go through all pipes and stop their movement
+        this.piper.forEach(function(p){ p.body.velocity.x = 0;}, this);
+                           
+                           
+                           
+    }
 };
 
 
