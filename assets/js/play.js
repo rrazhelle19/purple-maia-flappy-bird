@@ -56,6 +56,18 @@ var playState = {
     },
 
     update: function() {
+        // restart the game if our player went off stage
+        if (this.bird.y < 0 || this.bird.y > game.world.height) {
+            this.restartGame();
+        }
         
+        // call the hitPipe method if our player and pipes overlap
+        game.physics.arcade.overlap(this.bird, this.pipes, this.hitPipes, null, this);
+        
+        // rotate player to a certain point
+        if (this.bird.angle < 20){
+            this.bird.angle += 1;
+        }
+                                   
     }
 };
