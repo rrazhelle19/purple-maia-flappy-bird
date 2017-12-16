@@ -1,4 +1,3 @@
-//on video 7
 /* global game, Phaser, playState, menuState, mainMenuState */
 
 var playState = {
